@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from course_app.models import Topic,AccessRecord, Webpage
+from course_app.models import Topic,AccessRecord, Webpage, User
 
 # Create your views here.
 
@@ -16,7 +16,12 @@ def index(request):
     # my_dict= {'insert_me':"now im coming from course_app.html"}
     # return render(request,'course_app/index.html',context=my_dict)
 
-def help(request):
+# def help(request):
+#
+#      helpdict ={'helpkey':"welcome to helpPage!"}
+#      return render(request,'course_app/help.html',context = helpdict)
 
-     helpdict ={'helpkey':"welcome to helpPage!"}
-     return render(request,'course_app/help.html',context = helpdict)
+def users(request):
+    userlist= User.objects.all()
+    user_dict={'user_name': userlist}
+    return render(request, 'course_app/user.html',context=user_dict)
