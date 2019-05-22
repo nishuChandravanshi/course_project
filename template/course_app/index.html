@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Django level Two</title>
-    <link rel="stylesheet" href=""{% static "/css/mystyle.css" %}">
+    <link rel="stylesheet" href="{% static "/css/mystyle.css" %}"/>
   </head>
   <body>
     <!-- below  comments are ex.code while static is used -->
@@ -18,29 +18,30 @@
 
     <h1>Hi welcome to django level two!</h1>
     <h2>Here are your access records:</h2>
+
     <div class="djangotwo">
       {% if access_record %}
 
-      <table>
-        <thead>
-          <th>Site name</th>
-          <th>Date Accessed</th>
+        <table>
+          <thead>
+            <th>Site name</th>
+            <th>Date Accessed</th>
 
-        </thead>
+          </thead>
 
-        {% for acc in access_record %}
-          <!--access_record here is the key used in views.py  -->
-        <tr>
-          <td>{{ acc.name }}</td>
-          <td>{{ acc.date }}</td>
-        </tr>
-        {% endfor %}
+          {% for acc in access_record %}
+            <!--access_record here is the key used in views.py  -->
+          <tr>
+            <td>{{ acc.name }}</td>
+            <td>{{ acc.date }}</td>
+          </tr>
+          {% endfor %}
 
 
       </table>
 
       {% else %}
-      <p>NO ACCESS</p>
+      <p>NO ACCESS RECORDS FOUND</p>
       {% endif %}
     </div>
 

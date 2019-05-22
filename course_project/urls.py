@@ -26,6 +26,6 @@ urlpatterns = [
     # ** path('indexfun',views.index, name='index'),
     path('admin/', admin.site.urls),
     # ** first line here can be done as below as well
-    path('course_app/',include('course_app.urls'))
+    path('course_app/',include('course_app.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
 #  note--> the last part after the list is important while using static files and dont forget to import settings

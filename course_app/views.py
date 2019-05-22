@@ -6,7 +6,7 @@ from course_app.models import Topic,AccessRecord, Webpage
 
 def index(request):
     # linking models
-    webpage_list = Webpage.objects.order_by('date')
+    webpage_list = AccessRecord.objects.order_by('date')
     date_dict = {'access_record': webpage_list}
     return render(request,'course_app/index.html',context= date_dict)
 
@@ -17,6 +17,6 @@ def index(request):
     # return render(request,'course_app/index.html',context=my_dict)
 
 def help(request):
-     
+
      helpdict ={'helpkey':"welcome to helpPage!"}
      return render(request,'course_app/help.html',context = helpdict)
