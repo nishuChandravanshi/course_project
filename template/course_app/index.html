@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Django level Two</title>
+    <link rel="stylesheet" href=""{% static "/css/mystyle.css" %}">
+  </head>
+  <body>
+    <!-- below  comments are ex.code while static is used -->
+    <!-- <h1>hello thsi is index.html</h1> -->
+    <!-- below code is a template tag ;; doubly curly braces contains the variable;;and this tag in whole returns the op of that-->
+    <!-- {{ insert_me }} -->
+
+    <!-- <h1>this is a picture of django</h1> -->
+    <!-- <img src="{% static "images/django.jpeg" }" alt="ohh.."> -->
+
+
+    <h1>Hi welcome to django level two!</h1>
+    <h2>Here are your access records:</h2>
+    <div class="djangotwo">
+      {% if access_record %}
+
+      <table>
+        <thead>
+          <th>Site name</th>
+          <th>Date Accessed</th>
+
+        </thead>
+
+        {% for acc in access_record %}
+          <!--access_record here is the key used in views.py  -->
+        <tr>
+          <td>{{ acc.name }}</td>
+          <td>{{ acc.date }}</td>
+        </tr>
+        {% endfor %}
+
+
+      </table>
+
+      {% else %}
+      <p>NO ACCESS</p>
+      {% endif %}
+    </div>
+
+
+
+
+
+  </body>
+</html>
