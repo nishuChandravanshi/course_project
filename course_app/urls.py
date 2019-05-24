@@ -1,7 +1,7 @@
 from django.urls import path
 from course_app import views
 
-urlpatterns=[path('index/',views.index),
+urlpatterns=[path('users/',views.users),
 # path('help/',views.help),
-             path('users/',views.users),
+
 ]

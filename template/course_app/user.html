@@ -4,9 +4,29 @@
   <head>
     <meta charset="utf-8">
     <title>USER_PAGE</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-<h1>Users Info!</h1>
+    <h1> Fill out the form!</h1>
+
+    <div class="container">
+
+      <form method="post">
+
+        {{form.as_p}}   <!-- as_p:(as para) for top to bottom view-->
+        {% csrf_token %}
+
+        <input type="submit" name="btn btn-primary" value=Submit>
+
+      </form>
+
+    </div>
+
+  </body>
+</html>
+
+
+<!-- <h1>Users Info!</h1>
 {% if user_name %}
 
     <ol>
@@ -25,6 +45,4 @@
       {% endfor %}
 
     </ol>
-{% endif %}
-  </body>
-</html>
+{% endif %} -->

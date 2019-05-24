@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from course_app.models import Topic,AccessRecord, Webpage, User
-
+from course_app.form import FormName
 # Create your views here.
 
 def index(request):
@@ -22,6 +22,21 @@ def index(request):
 #      return render(request,'course_app/help.html',context = helpdict)
 
 def users(request):
-    userlist= User.objects.all()
-    user_dict={'user_name': userlist}
-    return render(request, 'course_app/user.html',context=user_dict)
+    # userlist= User.objects.all()
+    # user_dict={'user_name': userlist}
+
+    form = FormName()
+
+    if request.method=="POST":
+        form = FormName(request.POST)
+
+        if form.is_valid():
+
+            form.save(commit=True)
+            return index(request)
+
+        else:
+            print('invalid!') 
+
+
+    return render(request, 'course_app/user.html',{'form':form})

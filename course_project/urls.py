@@ -20,10 +20,12 @@ from course_app import views
 from django.conf.urls import include
 from django.conf.urls.static import static
 from django.conf import settings
+from course_app import views
 
 
 urlpatterns = [
     # ** path('indexfun',views.index, name='index'),
+    path('',views.index),
     path('admin/', admin.site.urls),
     # ** first line here can be done as below as well
     path('course_app/',include('course_app.urls')),
